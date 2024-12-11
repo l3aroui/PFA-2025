@@ -1,0 +1,16 @@
+spring:
+  data:
+    jpa:
+      database: POSTGRESQL
+      show-sql: true
+      generate-ddl: false
+      hibernate:
+        ddl-auto: update
+      defer-datasource-initialization: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/clientReview
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+server:
+  port: 9005

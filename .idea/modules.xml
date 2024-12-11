@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/PFA-2025.iml" filepath="$PROJECT_DIR$/.idea/PFA-2025.iml" />
+      <module fileurl="file://$PROJECT_DIR$/clientReviews-service/clientReviews-service.iml" filepath="$PROJECT_DIR$/clientReviews-service/clientReviews-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/config-server/config-server.iml" filepath="$PROJECT_DIR$/config-server/config-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/discovery/discovery.iml" filepath="$PROJECT_DIR$/discovery/discovery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway-service/gateway-service.iml" filepath="$PROJECT_DIR$/gateway-service/gateway-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/identity-service/identity-service.iml" filepath="$PROJECT_DIR$/identity-service/identity-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/product-service/product-service.iml" filepath="$PROJECT_DIR$/product-service/product-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/serviceClient-com/serviceClient-com.iml" filepath="$PROJECT_DIR$/serviceClient-com/serviceClient-com.iml" />
+    </modules>
+  </component>
+</project>

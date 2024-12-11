@@ -1,0 +1,25 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: serviceClient-com
+          uri: lb:http://SERVICECLIENT-COM
+          predicates:
+            - Path=/api/v1/client/**
+        - id: product-service
+            uri: lb:http://PRODUCT-SERVICE
+            predicates:
+              - Path=/api/v1/product/**
+        - id: clientReviews-service
+            uri: lb:http://CLIENTREVIEWS-SERICE
+            predicates:
+              - Path=/api/v1/reviews/**
+        - id: identity-service
+            uri: lb:http://IDENTITY-SERVICE
+            predicates:
+              - Path=/api/v1/identity/**
+server:
+  port: 8222
