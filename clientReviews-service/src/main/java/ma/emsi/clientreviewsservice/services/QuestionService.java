@@ -23,25 +23,26 @@ public class QuestionService {
     }
 
 
-    public List<QuestionResponseDTO> getAllQuestion(){
-        List<Question> questions=questionRepository.findAll();
-
-        QuestionResponseDTO dto = new QuestionResponseDTO();
-        return questions.stream().map(question -> {
-        dto.setId(question.getId());
-        dto.setText(question.getText());
-        dto.setType(question.getType());
-        dto.setRequired(question.isRequired());
-
-        List<QuestionResponseDTO.ChoiceDTO> choices = question.getChoices().stream().map(choice -> {
-            QuestionResponseDTO.ChoiceDTO choiceDTO = new QuestionResponseDTO.ChoiceDTO();
-            choiceDTO.setId(choice.getId());
-            choiceDTO.setText(choice.getText());
-            return choiceDTO;
-        }).collect(Collectors.toList());
-
-        dto.setChoices(choices);
-        return dto;
-    }).collect(Collectors.toList());
+    public List<Question> getAllQuestion(){
+//        List<Question> questions=questionRepository.findAll();
+//
+//        QuestionResponseDTO dto = new QuestionResponseDTO();
+//        return questions.stream().map(question -> {
+//        dto.setId(question.getId());
+//        dto.setText(question.getText());
+//        dto.setType(question.getType());
+//        dto.setRequired(question.isRequired());
+//
+//        List<QuestionResponseDTO.ChoiceDTO> choices = question.getChoices().stream().map(choice -> {
+//            QuestionResponseDTO.ChoiceDTO choiceDTO = new QuestionResponseDTO.ChoiceDTO();
+//            choiceDTO.setId(choice.getId());
+//            choiceDTO.setText(choice.getText());
+//            return choiceDTO;
+//        }).collect(Collectors.toList());
+//
+//        dto.setChoices(choices);
+//        return dto;
+//    }).collect(Collectors.toList());
+        return questionRepository.findAll();
     }
 }

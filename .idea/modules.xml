@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/clientReviews-service/clientReviews-service.iml" filepath="$PROJECT_DIR$/clientReviews-service/clientReviews-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/config-server/config-server.iml" filepath="$PROJECT_DIR$/config-server/config-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/discovery/discovery.iml" filepath="$PROJECT_DIR$/discovery/discovery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/frontend-thymeleaf/frontend-thymeleaf.iml" filepath="$PROJECT_DIR$/frontend-thymeleaf/frontend-thymeleaf.iml" />
       <module fileurl="file://$PROJECT_DIR$/gateway-service/gateway-service.iml" filepath="$PROJECT_DIR$/gateway-service/gateway-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/identity-service/identity-service.iml" filepath="$PROJECT_DIR$/identity-service/identity-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/product-service/product-service.iml" filepath="$PROJECT_DIR$/product-service/product-service.iml" />

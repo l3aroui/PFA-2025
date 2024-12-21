@@ -9,6 +9,8 @@
     <file url="file://$PROJECT_DIR$/demo/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/discovery/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/discovery/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/frontend-thymeleaf/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/frontend-thymeleaf/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gateway-com/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gateway-com/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gateway-service/src/main/java" charset="UTF-8" />

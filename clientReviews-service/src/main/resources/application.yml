@@ -1,6 +1,5 @@
 spring:
   application:
     name: clientReviews-service
-
   config:
     import: optional:configserver:http://localhost:8088

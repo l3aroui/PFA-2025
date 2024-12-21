@@ -11,9 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/reviews/client")
 public class ClientController {
-
     private final ResponseRepository responseRepository;
-
     @Autowired
     public ClientController(ResponseRepository responseRepository){
         this.responseRepository = responseRepository;

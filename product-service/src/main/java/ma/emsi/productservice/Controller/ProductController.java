@@ -52,7 +52,6 @@ public class ProductController {
     public ResponseEntity<Void>deleteProduct(@PathVariable("id")int id){
         Product product=productService.getProductById(id);
         if (product!=null){
-
             productService.deleteProduct(id);
             return ResponseEntity.ok().build();
         }

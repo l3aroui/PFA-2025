@@ -1,10 +1,12 @@
 package ma.emsi.productservice.Service.serviceImpl;
 
 
-import ma.emsi.productservice.Service.CategorieService;
+
+import ma.emsi.productservice.Service.CategoryService;
 import ma.emsi.productservice.Service.ProductService;
 import ma.emsi.productservice.dtos.ProductDTO;
 import ma.emsi.productservice.Repository.ProductRepo;
+
 import ma.emsi.productservice.module.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,11 +17,11 @@ import java.util.List;
 public class ProductServiceImp implements ProductService {
 
     private final ProductRepo repository ;
-    private final CategorieService categorieService ;
+    private final CategoryService categoryService ;
     @Autowired
-    public ProductServiceImp(ProductRepo repository, CategorieService categorieService) {
+    public ProductServiceImp(ProductRepo repository, CategoryService categoryService) {
         this.repository = repository;
-        this.categorieService = categorieService;
+        this.categoryService = categoryService;
     }
 
     public Integer editProduct(Product product) {
@@ -33,7 +35,7 @@ public class ProductServiceImp implements ProductService {
         productToSave.setQuantity(product.quantity());
         productToSave.setDescription(product.description());
         productToSave.setPrice(product.price());
-        productToSave.setCategorie(categorieService.getCategorie(product.id()));
+        productToSave.setCategory(categoryService.getCategory(product.id()));
         return repository.save(productToSave).getId();
     }
 
@@ -50,6 +52,5 @@ public class ProductServiceImp implements ProductService {
     @Override
     public void deleteProduct(Integer id) {
         repository.deleteById(id);
-
     }
 }
