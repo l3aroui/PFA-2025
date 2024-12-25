@@ -1,6 +1,5 @@
 package ma.emsi.clientreviewsservice.controllers;
 
-import ma.emsi.clientreviewsservice.dtos.QuestionResponseDTO;
 import ma.emsi.clientreviewsservice.entities.Question;
 import ma.emsi.clientreviewsservice.repositories.QuestionRepository;
 import ma.emsi.clientreviewsservice.services.QuestionService;
@@ -12,7 +11,7 @@ import java.util.List;
 
 
 @RestController
-    @RequestMapping("/api/v1/reviews/admin/question")
+@RequestMapping("/api/v1/reviews/admin/question")
 public class QuestionController {
 
     private final QuestionRepository questionRepository;
@@ -50,6 +49,8 @@ public class QuestionController {
 
     @GetMapping("/urlGenerate/{saleId}")
     public ResponseEntity<String> urlGenerate(@PathVariable Long saleId){
-        return ResponseEntity.ok("http://localhost:8010/api/v1/reviews/client/form/"+saleId);
+
+        return ResponseEntity.ok("http://localhost:8087/client/form/"+saleId);
     }
+
 }

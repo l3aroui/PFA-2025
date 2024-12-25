@@ -16,41 +16,50 @@ import java.util.List;
 @Service
 public class ProductServiceImp implements ProductService {
 
-    private final ProductRepo repository ;
+    private final ProductRepo productRepo ;
     private final CategoryService categoryService ;
     @Autowired
-    public ProductServiceImp(ProductRepo repository, CategoryService categoryService) {
-        this.repository = repository;
+    public ProductServiceImp(ProductRepo productRepo, CategoryService categoryService) {
+        this.productRepo = productRepo;
         this.categoryService = categoryService;
     }
 
-    public Integer editProduct(Product product) {
-        return repository.save(product).getId();
+    public Product editProduct(Long id, ProductDTO productU) {
+        Product product=productRepo.findById(id).orElseThrow(()->new RuntimeException("product not exist"));
+        product.setDescription(productU.getDescription());
+        product.setQuantity(productU.getQuantity());
+        product.setPrice(productU.getPrice());
+        product.setName(productU.getName());
+        return productRepo.save(product);
     }
 
     @Override
-    public Integer saveProduct(ProductDTO product) {
+    public Product saveProduct(ProductDTO product){
         Product productToSave = new Product();
         productToSave.setName(product.name());
         productToSave.setQuantity(product.quantity());
         productToSave.setDescription(product.description());
         productToSave.setPrice(product.price());
         productToSave.setCategory(categoryService.getCategory(product.id()));
-        return repository.save(productToSave).getId();
+        return productRepo.save(productToSave);
     }
 
     @Override
     public List<Product> getAllProducts() {
-        return repository.findAll();
+        return productRepo.findAll();
     }
 
     @Override
-    public Product getProductById(Integer id) {
-        return repository.findById(id).get();
+    public Product getProductById(Long id) {
+        return productRepo.findById(id).orElseThrow(()->new RuntimeException("product not exist"));
     }
 
     @Override
-    public void deleteProduct(Integer id) {
-        repository.deleteById(id);
+    public void deleteProduct(Long productId) {
+        if (!productRepo.existsById(productId)) {
+            throw new RuntimeException("Product not found with ID: " + productId);
+        }
+        // Delete the product
+        productRepo.deleteById(productId);
     }
 }

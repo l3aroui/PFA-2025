@@ -11,9 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/company")
+@RequestMapping("/api/v1/identity/company")
 public class CompanyController {
-
 
     private final CompanyService companyService;
     @Autowired

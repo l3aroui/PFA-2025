@@ -1,16 +1,15 @@
 package ma.emsi.productservice.module;
-
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.util.List;
+
 
 @Getter @Builder @Setter @AllArgsConstructor @NoArgsConstructor
 @Entity
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id ;
+    private Long id ;
     private String name;
     private double price;
     private int quantity;
@@ -20,5 +19,4 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
-
 }

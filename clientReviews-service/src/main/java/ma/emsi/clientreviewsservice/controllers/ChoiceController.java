@@ -20,7 +20,7 @@ public class ChoiceController {
     private final ChoiceService choiceService;
 
     // Endpoint pour ajouter un choix
-    @ExceptionHandler(InvalidQuestionTypeException.class)
+    
     @PostMapping("/{questionId}")
     public ResponseEntity<List<Choice>> addChoices(
             @PathVariable Long questionId,

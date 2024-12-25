@@ -3,9 +3,8 @@ package ma.emsi.productservice.Service.serviceImpl;
 import ma.emsi.productservice.Repository.CategoryRepo;
 
 import ma.emsi.productservice.Service.CategoryService;
-import ma.emsi.productservice.dtos.CategorieDTO;
 
-
+import ma.emsi.productservice.dtos.CategoryDTO;
 import ma.emsi.productservice.module.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,9 +22,9 @@ public class CategoryServiceImp implements CategoryService {
     }
 
     @Override
-    public Category SaveCategory(CategorieDTO categorieDTO){
+    public Category SaveCategory(CategoryDTO categorieDTO){
         Category category=Category.builder()
-                .name(categorieDTO.name())
+                .name(categorieDTO.getName())
                 .build();
         return categoryRepository.save(category);
     }

@@ -7,10 +7,9 @@ import ma.emsi.productservice.module.Product;
 import java.util.List;
 
 public interface ProductService {
-    public Integer saveProduct( ProductDTO product) ;
-    public List<Product> getAllProducts();
-    public Product getProductById(Integer id);
-    public void deleteProduct(Integer id);
-
+    Product saveProduct(ProductDTO product);
+    List<Product> getAllProducts();
+    Product getProductById(Long id);
+    void deleteProduct(Long id);
 
 }

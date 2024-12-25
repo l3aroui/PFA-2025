@@ -1,7 +1,8 @@
 package ma.emsi.productservice.Controller;
 
 import ma.emsi.productservice.Service.CategoryService;
-import ma.emsi.productservice.dtos.CategorieDTO;
+
+import ma.emsi.productservice.dtos.CategoryDTO;
 import ma.emsi.productservice.module.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ public class CategoryController {
     }
 
     @PostMapping("/saveCategory")
-    public ResponseEntity<Category> createCategory(@RequestBody CategorieDTO category) {
+    public ResponseEntity<Category> createCategory(@RequestBody CategoryDTO category) {
         return ResponseEntity.ok(categoryService.SaveCategory(category));
     }
 

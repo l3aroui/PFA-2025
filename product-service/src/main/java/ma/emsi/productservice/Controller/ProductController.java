@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
 import java.util.List;
 
 
@@ -19,37 +20,28 @@ public class ProductController {
     private ProductServiceImp productService;
 
     @PostMapping("/saveProduct")
-    public ResponseEntity<String> saveProduct(@RequestBody ProductDTO product) {
-        Integer id = productService.saveProduct(product);
-        return new ResponseEntity<String>("Product with'" + id + "'has been saved", HttpStatus.OK);
+    public ResponseEntity<Product> saveProduct(@RequestBody ProductDTO product) {
+
+        return ResponseEntity.created(URI.create("/byId/"+product.getId())).body(productService.saveProduct(product));
     }
 
     @GetMapping("/productList")
     public ResponseEntity<List<Product>> getAllProductDetails() {
-        List<Product> list = productService.getAllProducts();
-        return new ResponseEntity<List<Product>>(list, HttpStatus.OK);
+        return ResponseEntity.ok(productService.getAllProducts());
     }
 
-    @GetMapping("/getProductById/{id}")
-    public ResponseEntity<Product> getProductById(@PathVariable("id") Integer id) {
-
-        Product p = productService.getProductById(id);
-        return new ResponseEntity<>(p , HttpStatus.OK);
+    @GetMapping("/byId/{id}")
+    public ResponseEntity<Product> getProductById(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(productService.getProductById(id));
     }
 
     @PutMapping("/updateProduct/{id}")
-    public ResponseEntity<String>updateProduct(@PathVariable("id")Integer id,@RequestBody ProductDTO product){
-        Product pFromDb = productService.getProductById(id);
-        pFromDb.setName(product.name());
-        pFromDb.setPrice(product.price());
-        pFromDb.setQuantity(product.quantity());
-        pFromDb.setDescription(product.description());
-        Integer id1 = productService.editProduct(pFromDb);
-        return new ResponseEntity<String>("Student with '"+id1+"'has been updated",HttpStatus.OK);
-
+    public ResponseEntity<Product> updateProduct(@PathVariable("id")Long id,@RequestBody ProductDTO product){
+        return ResponseEntity.ok(productService.editProduct(id,product));
     }
+
     @DeleteMapping("/deleteProduct/{id}")
-    public ResponseEntity<Void>deleteProduct(@PathVariable("id")int id){
+    public ResponseEntity<Void>deleteProduct(@PathVariable("id")Long id){
         Product product=productService.getProductById(id);
         if (product!=null){
             productService.deleteProduct(id);
