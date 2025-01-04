@@ -35,13 +35,11 @@ public class ProductServiceImp implements ProductService {
 
     @Override
     public Product saveProduct(ProductDTO product){
-        Product productToSave = new Product();
-        productToSave.setName(product.name());
-        productToSave.setQuantity(product.quantity());
-        productToSave.setDescription(product.description());
-        productToSave.setPrice(product.price());
-        productToSave.setCategory(categoryService.getCategory(product.id()));
-        return productRepo.save(productToSave);
+
+        return productRepo.save(Product.builder()
+                .description(product.getDescription())
+                .quantity(product.getQuantity()).price(product.getPrice()).name(product.getName()).id(product.getId())
+                .build());
     }
 
     @Override

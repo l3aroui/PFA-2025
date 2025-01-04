@@ -18,8 +18,7 @@ public class Response {
     @JoinColumn(name = "question_id")
     private Question question;
     @ManyToOne
-    @JoinColumn(name = "choice_id", nullable = true)
+    @JoinColumn(name = "choice_id")
     private Choice choice;
-    @Column(nullable = true)
-    private String responseText;
+    private String customResponse;
 }

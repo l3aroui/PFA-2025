@@ -49,7 +49,6 @@ public class QuestionController {
 
     @GetMapping("/urlGenerate/{saleId}")
     public ResponseEntity<String> urlGenerate(@PathVariable Long saleId){
-
         return ResponseEntity.ok("http://localhost:8087/client/form/"+saleId);
     }
 

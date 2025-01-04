@@ -4,12 +4,12 @@
       layout:decorate="~{layout :: layout}">
 <head>
   <title>Modifier un Candidat</title>
+
 </head>
 <body>
 <div layout:fragment="content">
   <div class="container mt-5">
     <h1 class="mb-4">Liste des Questions</h1>
-
     <div th:if="${questions != null}">
       <div th:each="question : ${questions}" class="card mb-4">
         <div class="card-body">
@@ -17,6 +17,7 @@
             <span th:text="${question.text}"></span>
             <span th:if="${question.required}" style="color: red;">*</span>
           </h5>
+
           <p th:text="${question.type == 'TEXT' ? 'The client has to provide a text response.' : ''}"></p>
           <div th:if="${question.type == 'MULTIPLECHOICE'}">
             <div th:if="${question.choices != null}">

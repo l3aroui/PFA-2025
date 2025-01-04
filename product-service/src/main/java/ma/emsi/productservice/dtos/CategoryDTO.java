@@ -7,6 +7,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
-public record CategoryDTO(String name) {
-
+public class CategoryDTO{
+    private String name;
 }

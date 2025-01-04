@@ -23,10 +23,10 @@ public class SaleServiceImp implements SaleService {
     @Override
     public Sale saveSale(SaleDTO saleDTO) {
         Sale sale= Sale.builder()
-                .amount(saleDTO.amount())
-                .saleDate(saleDTO.saleDate())
-                .quantity(saleDTO.quantity())
-                .saleDate(saleDTO.saleDate())
+                .amount(saleDTO.getAmount())
+                .saleDate(saleDTO.getSaleDate())
+                .quantity(saleDTO.getQuantity())
+                .saleDate(saleDTO.getSaleDate())
                 .build();
         return saleRepository.save(sale);
     }

@@ -1,15 +1,20 @@
 package org.example.frontendthymeleaf.controller;
 
 
+import org.example.frontendthymeleaf.model.Question;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.client.RestTemplate;
 
 @Controller
 @RequestMapping("/reviews")
 public class ReviewsController {
+
+
 
     @GetMapping
     public String reviewsPage(Model model){

@@ -6,8 +6,9 @@ import lombok.Setter;
 
 import java.util.Date;
 
-@Getter
-@Setter
-@Builder
-public record SaleDTO(int quantity , double amount , Date saleDate) {
+@Getter @Setter @Builder
+public class SaleDTO{
+    private int quantity;
+    private double amount;
+    private Date saleDate;
 }

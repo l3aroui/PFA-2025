@@ -25,12 +25,12 @@ public class CategoryController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Category> getCategorieById(@PathVariable int id) {
+    public ResponseEntity<Category> getCategoryById(@PathVariable int id) {
         return ResponseEntity.ok(categoryService.getCategory(id));
     }
 
     @GetMapping
-    public ResponseEntity<List<Category>> getAllCategorie() {
+    public ResponseEntity<List<Category>> getAllCategory() {
         return ResponseEntity.ok(categoryService.getAllCategories());
     }
 }
