@@ -27,23 +27,23 @@ public class ClientResponseController {
 
     @GetMapping
     public String saveClientResponse(@RequestParam List<Map<String,String>> questionResponse,
-                                     @RequestParam Long clientId,
+
                                      @RequestParam Long saleId){
 
-        String url="http://clientReviews-service/api/v1/reviews/client/saveResponse";
-        ClientResponse clientResponse= new ClientResponse(clientId,saleId,questionResponse,null);
+        String url="http://clientReviews-service/api/v1/reviews/client/saveResponse"+saleId;
+        ClientResponse clientResponse= new ClientResponse(saleId,questionResponse,null);
         restTemplate.postForEntity(url, clientResponse,ClientResponse[].class);
         return "redirect:clientResponse";
     }
 
-    @GetMapping("/clientForm/{id}")
-    public String clientFormulaire(Model model,@PathVariable("id") Long saleId){
-        String url = "http://clientReviews-service/api/v1/reviews/admin/question/response/"+saleId;
-        Question[] response = restTemplate.getForObject(url, Question[].class);
-        model.addAttribute("questions",response);
-        return "clientForm";
-    }
-    
+//    @GetMapping("/clientForm/{id}")
+//    public String clientFormulaire(Model model,@PathVariable("id") Long saleId){
+//        String url = "http://clientReviews-service/api/v1/reviews/admin/question/response/"+saleId;
+//        Question[] response = restTemplate.getForObject(url, Question[].class);
+//        model.addAttribute("questions",response);
+//        return "clientForm";
+//    }
+
     @GetMapping("/clientResponse/{id}")
     public String clientResponse(Model model, @PathVariable("id") Long saleId){
         String url = "http://clientReviews-service/api/v1/reviews/client/response/"+saleId;

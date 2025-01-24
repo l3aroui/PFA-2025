@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout :: layout}">
+<head>
+    <title>client form</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <form>
+        <label for="questionText">choice text</label>
+        <input type="text" class="form-control" id="questionText" name="text" placeholder="question text" required>
+        <button type="submit" class="btn btn-primary mt-3">add</button>
+        <a class="btn btn-success" th:href="@{/addchoice}">add another choice</a>
+        <div class="invalid-feedback">
+            Question text
+        </div>
+    </form>
+</div>
+</body>
+</html>
