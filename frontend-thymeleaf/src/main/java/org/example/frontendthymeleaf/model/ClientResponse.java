@@ -9,8 +9,7 @@ import java.util.Map;
 @Builder
 @AllArgsConstructor @NoArgsConstructor @Getter @Setter
 public class ClientResponse {
-    private Long ClientId;
-    private Long saleId;
-    private List<Map<String,String>> question;
-    private String evaluation;
+    private Long questionId;
+    private Long  choiceId;
+    private String customResponse;
 }

@@ -1,5 +1,4 @@
-package org.example.frontendthymeleaf.controller;
-
+package org.example.frontendthymeleaf.controllers;
 
 import org.example.frontendthymeleaf.model.ClientResponse;
 import org.example.frontendthymeleaf.model.Question;
@@ -31,7 +30,7 @@ public class ClientResponseController {
                                      @RequestParam Long saleId){
 
         String url="http://clientReviews-service/api/v1/reviews/client/saveResponse"+saleId;
-        ClientResponse clientResponse= new ClientResponse(saleId,questionResponse,null);
+        ClientResponse clientResponse= new ClientResponse(saleId,null,null);
         restTemplate.postForEntity(url, clientResponse,ClientResponse[].class);
         return "redirect:clientResponse";
     }
@@ -51,4 +50,5 @@ public class ClientResponseController {
         model.addAttribute("questions",response);
         return "clientForm";
     }
+
 }

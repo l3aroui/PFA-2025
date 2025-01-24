@@ -1,4 +1,4 @@
-package org.example.frontendthymeleaf.controller;
+package org.example.frontendthymeleaf.controllers;
 import org.example.frontendthymeleaf.model.Question;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -46,7 +46,7 @@ public class QuestionFrontendController {
     }
 
     @GetMapping("/questions/delete")
-    public String deleteQuestion(@RequestParam Long questionId) {
+    public String deleteQuestion(@RequestParam("id") Long questionId) {
         String url = "http://clientReviews-service/api/v1/reviews/admin/question/delete/" + questionId;
         restTemplate.delete(url);
         return "redirect:/questions";

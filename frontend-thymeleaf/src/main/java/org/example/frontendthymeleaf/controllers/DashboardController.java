@@ -1,4 +1,4 @@
-package org.example.frontendthymeleaf.controller;
+package org.example.frontendthymeleaf.controllers;
 
 
 

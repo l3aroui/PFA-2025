@@ -31,7 +31,7 @@ public class ClientService implements ClientServiceI {
     }
 
     @Override
-    public Client addClient(ClientDto clientDto, Long commercialId, Long companyId){
+    public Client addClient(ClientDto clientDto, Long commercialId){
         Client client=new Client();
         client.setClientType(clientDto.getClientType());
         client.setEmail(clientDto.getEmail());
@@ -39,7 +39,6 @@ public class ClientService implements ClientServiceI {
         client.setLastname(clientDto.getLastname());
         client.setPhoneNumber(clientDto.getPhoneNumber());
         client.setFirstname(clientDto.getFirstname());
-        client.setCompanyId(companyId);
         client.setCommercialId(commercialId);
         return clientRepository.save(client);
     }

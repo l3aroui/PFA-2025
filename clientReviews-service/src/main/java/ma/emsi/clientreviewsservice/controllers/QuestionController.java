@@ -26,7 +26,10 @@ public class QuestionController {
     public ResponseEntity<List<Question>> getAllQuestions() {
         return ResponseEntity.ok(questionService.getAllQuestion());
     }
-
+    @GetMapping("/{id}")
+    public ResponseEntity<Question> findQuestionById(@PathVariable("id") Long questionId){
+        return ResponseEntity.ok(questionService.findQuestionById(questionId));
+    }
     @PostMapping("/add")
     public ResponseEntity<Question> createQuestion(@RequestBody Question question) {
         return ResponseEntity.ok(questionRepository.save(question));

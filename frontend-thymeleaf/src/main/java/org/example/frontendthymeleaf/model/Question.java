@@ -15,5 +15,5 @@ public class Question {
     private String text;
     private String type;
     private Boolean required;
-    List<Choice> choices;
+    private List<Choice> choices;
 }

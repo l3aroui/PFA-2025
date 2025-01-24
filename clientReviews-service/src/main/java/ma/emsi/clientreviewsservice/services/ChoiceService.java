@@ -32,10 +32,14 @@ public class ChoiceService {
             return choiceRepository.saveAll(choices);
         }
         else {
-            throw  new InvalidQuestionTypeException("question type text don't have choices");
+            throw  new InvalidQuestionTypeException();
         }
     }
-
+    public Choice addOneChoice(Long questionId,Choice choice){
+        Question question=questionRepository.findById(questionId).orElseThrow(()->new RuntimeException(""));
+        Choice choiceSaved=new Choice(null,choice.getText(),question);
+        return choiceRepository.save(choiceSaved);
+    }
     // Récupérer tous les choix
     public List<Choice> getAllChoices() {
         return choiceRepository.findAll();

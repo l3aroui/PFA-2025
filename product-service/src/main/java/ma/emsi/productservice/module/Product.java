@@ -17,6 +17,6 @@ public class Product {
     @OneToMany
     private List<Sale> sales;
     @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
+    @JoinColumn(name = "category_id")
     private Category category;
 }

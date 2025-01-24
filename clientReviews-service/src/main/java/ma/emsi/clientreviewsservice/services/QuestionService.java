@@ -15,14 +15,14 @@ public class QuestionService {
 
 
     private final QuestionRepository questionRepository;
-    private final ChoiceRepository choiceRepository;
+
     @Autowired
-    public QuestionService(QuestionRepository questionRepository, ChoiceRepository choiceRepository) {
+    public QuestionService(QuestionRepository questionRepository) {
         this.questionRepository = questionRepository;
-        this.choiceRepository = choiceRepository;
     }
-
-
+    public Question findQuestionById(Long questionId){
+        return questionRepository.findById(questionId).orElseThrow(()->new RuntimeException("question not find"));
+    }
     public List<Question> getAllQuestion(){
 //        List<Question> questions=questionRepository.findAll();
 //

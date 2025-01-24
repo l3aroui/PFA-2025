@@ -13,7 +13,6 @@ public class Response {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long saleId;
-    private Long clientId;
     @ManyToOne
     @JoinColumn(name = "question_id")
     private Question question;

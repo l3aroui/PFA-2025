@@ -34,12 +34,12 @@ public class ClientController {
         return ResponseEntity.ok(clients);
     }
 
-    @PostMapping
+    @PostMapping("/{IdComm}")
     public ResponseEntity<Client> addClient(
             @RequestBody @Valid ClientDto clientDto,
-            @RequestParam("IdComm") Long commercialId,
-            @RequestParam("IdComp") Long companyId) {
-        Client savedClient = clientServiceI.addClient(clientDto, commercialId, companyId);
+            @PathVariable("IdComm") Long commercialId
+            ) {
+        Client savedClient = clientServiceI.addClient(clientDto, commercialId);
         return ResponseEntity.ok(savedClient);
     }
 

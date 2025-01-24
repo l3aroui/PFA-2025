@@ -1,4 +1,4 @@
-package org.example.frontendthymeleaf.controller;
+package org.example.frontendthymeleaf.controllers;
 
 import org.example.frontendthymeleaf.model.Choice;
 import org.example.frontendthymeleaf.model.Question;
@@ -11,7 +11,6 @@ import org.springframework.web.client.RestTemplate;
 
 @Controller
 public class ChoiceController {
-
 
     private final RestTemplate restTemplate;
 
@@ -30,11 +29,11 @@ public class ChoiceController {
     }
 
     @PostMapping("/addChoice")
-    public String addChoice(@RequestParam Long questionId,@RequestParam String text){
-        String url="http://clientReviews-service/api/v1/reviews/choices/"+questionId;
-        Choice choice=new Choice(null,text);
-        restTemplate.postForObject(url,choice,Choice.class);
-        return "redirect:/addChoiceForm";
+    public String addChoice(@RequestParam Long questionId, @RequestParam String text){
+        String url = "http://clientReviews-service/api/v1/reviews/choices/one/"+questionId;
+        Choice choice = new Choice(null,text); // Assurez-vous que la classe `Choice` contient ces champs.
+        restTemplate.postForObject(url, choice, Choice.class);
+        return "redirect:/questions";
     }
 
 }

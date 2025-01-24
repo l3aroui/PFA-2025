@@ -15,7 +15,7 @@ public class NoteController{
     private final NoteServiceI noteServiceI;
 
     @Autowired
-    public NoteController(NoteServiceI noteServiceI) {
+    public NoteController(NoteServiceI noteServiceI){
         this.noteServiceI = noteServiceI;
     }
 
